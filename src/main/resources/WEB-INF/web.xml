@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+	      http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+
+    <description>Hystrix Dashboard hawt.io plugin</description>
+    <display-name>hawt.io hystrix dashboard plugin</display-name>
+
+    <context-param>
+        <description>Plugin's path on the server</description>
+        <param-name>plugin-context</param-name>
+        <param-value>${plugin-context}</param-value>
+    </context-param>
+
+    <context-param>
+        <description>Plugin's path on the server</description>
+        <param-name>plugin-name</param-name>
+        <param-value>${project.artifactId}</param-value>
+    </context-param>
+
+    <context-param>
+        <description>Plugin's path on the server</description>
+        <param-name>plugin-domain</param-name>
+        <param-value>${plugin-domain}</param-value>
+    </context-param>
+
+    <context-param>
+        <description>Plugin's path on the server</description>
+        <param-name>plugin-scripts</param-name>
+        <param-value>${plugin-scripts}</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>com.backbase.camel.hystrix.PluginContextListener</listener-class>
+    </listener>
+
+    <servlet>
+        <description/>
+        <display-name>MockStreamServlet</display-name>
+        <servlet-name>MockStreamServlet</servlet-name>
+        <servlet-class>com.netflix.hystrix.dashboard.stream.MockStreamServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MockStreamServlet</servlet-name>
+        <url-pattern>/mock.stream</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description />
+        <display-name>ProxyStreamServlet</display-name>
+        <servlet-name>ProxyStreamServlet</servlet-name>
+        <servlet-class>com.netflix.hystrix.dashboard.stream.ProxyStreamServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProxyStreamServlet</servlet-name>
+        <url-pattern>/proxy.stream</url-pattern>
+    </servlet-mapping>
+</web-app>
+

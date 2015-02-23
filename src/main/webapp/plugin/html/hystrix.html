@@ -1,0 +1,17 @@
+<script language="JavaScript">
+    <!--
+    function autoResize(id){
+        var newheight;
+        var newwidth;
+
+        if(document.getElementById){
+            newheight=document.getElementById(id).contentWindow.document.body.scrollHeight;
+            newwidth=document.getElementById(id).contentWindow.document.body.scrollWidth;
+        }
+
+        document.getElementById(id).height= (newheight) + "px";
+        document.getElementById(id).width= (newwidth) + "px";
+    }
+    //-->
+</script>
+<iframe id="iframe1" scrolling="no" width="100%" height="300"  frameborder="0" src="/hystrix-plugin/monitor/monitor.html?stream=http://localhost:8181/camel/hystrix/hystrix.stream" onLoad="autoResize('iframe1');"/>
