@@ -17,6 +17,7 @@
         <maven-resources-plugin-version>2.6</maven-resources-plugin-version>
         <maven-surefire-plugin-version>2.13</maven-surefire-plugin-version>
         <war-plugin-version>2.1.1</war-plugin-version>
+        <build-helper-maven-plugin.version>1.9.1</build-helper-maven-plugin.version>
 
         <webapp-dir>${project.artifactId}-${project.version}</webapp-dir>
         <webapp-outdir>${basedir}/target/${webapp-dir}</webapp-outdir>
@@ -264,6 +265,30 @@
                         </resource>
                     </webResources>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>${build-helper-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-artifacts</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>target/classes/features.xml</file>
+                                    <type>xml</type>
+                                    <classifier>features</classifier>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
