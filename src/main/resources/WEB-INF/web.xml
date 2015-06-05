@@ -33,7 +33,7 @@
     </context-param>
 
     <listener>
-        <listener-class>com.backbase.camel.hystrix.PluginContextListener</listener-class>
+        <listener-class>com.backbase.camel.hystrix.hawtio.PluginContextListener</listener-class>
     </listener>
 
     <servlet>

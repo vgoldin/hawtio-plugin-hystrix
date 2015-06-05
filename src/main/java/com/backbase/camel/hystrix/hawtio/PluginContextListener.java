@@ -1,4 +1,4 @@
-package com.backbase.camel.hystrix;
+package com.backbase.camel.hystrix.hawtio;
 
 import io.hawt.web.plugin.HawtioPlugin;
 import org.slf4j.Logger;
